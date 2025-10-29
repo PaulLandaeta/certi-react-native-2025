@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { StyleSheet, Text, View, Pressable, Image, Alert, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, Alert, ActivityIndicator, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { logout } from '../../src/services/loginEmail';
@@ -8,12 +8,15 @@ import { getUserByUid, updateUserPhoto } from '../../src/services/userService';
 import { uploadToCloudinary } from '../../src/services/cloudinary';
 import * as ImagePicker from 'expo-image-picker';
 import { updateProfile } from 'firebase/auth';
+import { FadeView } from '../../src/components/FadeView';
+import { useFade } from '../../src/hooks/useFade';
 
 const ProfileScreen = () => {
   const [photoUrl, setPhotoUrl] = useState<string | undefined>();
   const [email, setEmail] = useState<string | null>(null);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [uploading, setUploading] = useState(false);
+  const titleProfile = useFade(0, -80, 'down');
 
   useEffect(() => {
     const currentUser = auth.currentUser;
@@ -120,7 +123,15 @@ const ProfileScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <View style={styles.container}>
-        <Text style={styles.title}>Perfil</Text>
+        <FadeView opacity={titleProfile.opacity} styles={{transform: titleProfile.transform}}>
+          <Text style={styles.title}>Perfil</Text>
+        </FadeView>
+        <Button title="Fade In Title" 
+          onPress={() => titleProfile.fadeIn({ duration: 500 })}>
+        </Button>
+        <Button title="Fade In Title" 
+          onPress={() => titleProfile.fadeOut({ duration: 500 })}>
+        </Button>
         {email && <Text style={styles.subtitle}>{email}</Text>}
         <View style={styles.avatarWrapper}>
           {loadingProfile ? (

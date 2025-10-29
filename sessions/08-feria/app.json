@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "08-feria",
-    "slug": "08-feria",
+    "slug": "feria-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -31,6 +31,13 @@
     "plugins": [
       "expo-router",
       "expo-web-browser"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a6f7f534-62c1-4cf9-aac2-b1cb2a0b6276"
+      }
+    },
+    "owner": "drpaulvazo"
   }
 }

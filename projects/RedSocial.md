@@ -50,3 +50,24 @@ Búsqueda básica (por titulo o lugar) y filtro por categoria (en memoria).
 -   Creador puede cerrar/cancelar su plan, eliminar comentarios ofensivos.
 -   Usuarios pueden reportar plan/comentario; admin puede ocultar/borrar.
 -   Filtro de palabras (cliente) antes de publicar comentario (soft).
+
+# Proyecto Final — Integraciones (Mapas, Animaciones, Notificaciones Push)
+
+## 3.1 Mapas (expo-location + react-native-maps)
+
+Permitir al creador asignar una ubicación (lat/lng) al crear el plan.
+En PlanDetail, mostrar un mini mapa con marcador del lugar.
+Pantalla MapaGeneral:
+Mostrar todos los planes open en un mapa con marcadores.
+Filtros rápidos por categoría y estado.
+Acciones: tap en marcador → abre PlanDetail.
+opción “Cómo llegar” → abrir en app nativa de mapas.
+
+## Animaciones (react-native-reanimated / Animated API)
+
+Animación de entrada de tarjetas (planes) en PlanesList.
+Feedback animado al votar o cambiar voto.
+Transición suave al abrir PlanDetail (fade/slide).
+Reacción visual en botón de RSVP o comentario agregado.
+animación de transición entre estados del plan (open → closed).
+

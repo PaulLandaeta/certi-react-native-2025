@@ -46,3 +46,40 @@ store user
 - Iniciar chat desde ItemDetail → crea chats/{chatId} (vendedor + comprador).
 - Ofertas: mensajes con tipo offer y monto en Bs; vendedor puede aceptar/rechazar.
 - Al aceptar oferta, item pasa a status="reserved" (y opcional sold cuando confirmen).
+# Proyecto Final (Mapas, Animaciones, Push Notifications)
+
+## Mapas (Uso real de geolocalización y rutas)
+
+Permisos de ubicación del dispositivo y lectura de localización actual.
+
+Pantalla MapaGeneral con:
+
+Marcadores de ítems aprobados y disponibles (coordenadas desde documento).
+
+Filtros rápidos (categoría, tipo, estado, carrera).
+
+Acción “ir al ítem” que abre ItemDetail correspondiente.
+
+Pantalla Rutas:
+
+Seleccionar un ítem y visualizar ruta desde la ubicación del usuario hasta el punto de encuentro.
+
+Mostrar distancia y tiempo estimado.
+
+Acción “Abrir en app de mapas” (enlace profundo a la app nativa).
+
+Buenas prácticas:
+
+Abstraer proveedor de direcciones para poder cambiar entre Mapbox/Google/OSRM sin tocar pantallas.
+
+Declarar un modelo de POI (punto de encuentro) por ítem: dirección corta, coordenadas, notas.
+
+## Animaciones (Microinteracciones y transición de estado)
+
+Listado MercadoList: animación de entrada de tarjetas, con leves variaciones para evitar efecto robótico.
+
+Favoritos: realimentación visual instantánea al marcar/desmarcar.
+Filtros: animación al abrir/cerrar el panel de filtros.
+Detalle: transición del cover y elementos clave (título/precio) al entrar/salir.
+Mapa/Rutas: suavizar aparición de marcadores; resaltar el ítem seleccionado; animación del trazado de ruta.
+Chat/Ofertas: sutiles animaciones al llegar nuevos mensajes u ofertas aceptadas.

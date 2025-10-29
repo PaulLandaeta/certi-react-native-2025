@@ -63,3 +63,42 @@ Chat con organizador (podria ser una IA con el context de la oportunidad)
 -   Sólo organizer/admin crean/actualizan oportunidades; estudiante no edita.
 -   status de oportunidad administrado por organizer/admin.
 -   Reportes (opcional): reports para contenido inapropiado.
+
+## Proyecto Final — Integraciones Avanzadas (Maps, Auth extendida, Admin, Push, Animations)
+
+## Mapas y geolocalización
+
+- MapaGeneral con marcadores de oportunidades (lat/lng en documento) y filtros (campus/categoría/modalidad/disponibilidad).
+- Permisos de ubicación, centrado en la posición del usuario y orden por distancia.
+- En OportunidadDetail: mapa embebido y botón “Cómo llegar” (deeplink a Google/Apple Maps).
+- Trazar ruta in‑app con polyline y mostrar distancia/tiempo estimados.
+
+## Autenticación extendida
+
+- Register con validación y creación de perfil en users/{uid} (rol por defecto student).
+- Forgot Password operativo con feedback claro.
+- Splash que restaura sesión y redirige al Home si válida.
+
+## Roles y Panel de Administración
+
+- Campo role en perfil (student | organizer | admin).
+- Pantalla Admin (visible solo para roles permitidos):
+- Crear/editar oportunidades (organizer/admin).
+- Aprobar/cambiar estado (open/waitlist/closed/finished).
+- Gestionar postulaciones: cambiar estado con trazabilidad mínima (quién/cuándo y razón opcional).
+
+## Notificaciones Push (expo‑notifications)
+
+- Registro y almacenamiento de pushToken por usuario; opt‑out desde Perfil.
+- Disparadores mínimos (al menos 3):
+- Cambio de estado de la postulación (accepted/rejected/waitlisted) → al estudiante.
+- Nueva oportunidad publicada en el campus/categoría del estudiante.
+- Recordatorio de deadline de postulación o de inicio de actividad.
+- Manejar casos: sin permisos, usuario sin token, evitar duplicados.
+
+## Animaciones (microinteracciones y transiciones)
+
+- Aparición de tarjetas en listas (Oportunidades/MisPostulaciones) con variaciones sutiles.
+- Feedback animado al guardar una oportunidad y al enviar una postulación.
+- Transición suave al abrir OportunidadDetail.
+- Mapa: aparición de marcadores y realce del seleccionado.

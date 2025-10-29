@@ -59,3 +59,40 @@ Stacks por pestaña (Detalle, Edición admin, etc.).
 - Sólo para usuarios con role: "admin" en users/{uid}:
 - Form para crear/editar lugar (nombre, categoría, zona, breve, descripción, horario, lat, lng, cover).
 - Subida de imagen a Storage.
+
+## Proyecto Final — Integraciones Avanzadas (Maps, Auth completa, Admin, Push, Animations)
+
+## Mapas (uso real y rutas)
+
+MapaGeneral con filtros (categoría/zona) y orden por distancia.
+Marcadores con clustering; al seleccionar marcador, abrir LugarDetail.
+En LugarDetail, mapa embebido y botón “Cómo llegar” (deeplink a Google/Apple Maps).
+trazar ruta in‑app (polyline) y mostrar distancia/tiempo estimado.
+
+## Autenticación extendida
+
+- Register completo con validación; creación de perfil en users/{uid}.
+- Forgot Password operativo con feedback claro.
+- Splash que restaura sesión y redirige a Home si válida.
+
+## Rol de Administrador
+
+- Campo isAdmin en perfil; acceso a pantalla de administración visible solo a admins.
+- Moderación/edición de lugares (crear/editar/eliminar) con trazabilidad mínima (quién/cuándo).
+
+## Notificaciones Push (expo‑notifications)
+
+-   Registro y almacenamiento de pushToken por usuario con opción opt‑out en Perfil.
+-   Disparadores mínimos (al menos 3):
+-   Nuevo lugar aprobado/creado por el admin (notificar a quien lo propuso o a suscriptores de categoría).
+-   Actualización relevante en un lugar favoritado (cambio de horario o tips).
+-   Recordatorio para visitas planificadas (si el usuario lo agenda) o mensaje informativo del admin.
+-   Deben manejar estado sin permisos y evitar duplicados.
+
+## Animaciones (microinteracciones y transiciones)
+
+- Aparición de tarjetas en listas (Explorar/Favoritos).
+- Feedback animado al marcar favorito.
+- Transición suave al abrir LugarDetail.
+- Mapa: aparición de marcadores y realce del marcador seleccionado.
+

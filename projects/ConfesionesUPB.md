@@ -88,3 +88,36 @@ Datos mock (semillas) en /src/data/seed.ts para pruebas.
 - Filtro de palabras cliente previo al envío (lista local configurable).
 - Toxicity check simple con heurísticas (cliente) + etiqueta needsReview: true.
 - se puede usar el Backend generado en clases. 
+
+
+# Proyecto Final 
+Agregamos: Maps, Rutas, Register/Forgot password, Push Notifications, y Animaciones con Animated.
+
+## 3.1 Maps (react-native-maps) y geolocalización
+
+Pantalla Mapas en pestañas o accesible desde Perfil.
+Mostrar mapa centrado en ubicación del usuario (expo-location) con marcadores (p. ej., puntos de interés del campus o lugares de encuentro).
+## Autenticación extendida (Register / Forgot Password)
+
+Register: nombre opcional; guardar doc users/{uid} con email, displayName, createdAt, pushToken?.
+Forgot password: sendPasswordResetEmail(email) y toast de confirmación.
+Google: usar AuthSession + GoogleAuthProvider.credential(id_token).
+
+## Push Notifications (Expo Notifications)
+
+Solicitar permisos; obtener expoPushToken y persistir en users/{uid}.pushToken.
+En moderación: al aprobar tu propia confesión (o si el profe quiere, notificar al autor), enviar push.
+Flujo básico:
+registerForPush() ⇒ token.
+Guardar token del usuario autenticado.
+Servidor o Cloud Function o dentro de la app que llame a https://exp.host/--/api/v2/push/send.
+
+Ejemplos de triggers: aprobación, rechazo (con motivo), likes a tu confesión (puntos extras).
+
+## Animaciones (Animated)
+
+Cards del Feed: entrada con Animated.spring (scale/translateY).
+Like button: Animated.sequence([scale up, scale down]) al presionar.
+Transiciones de Modal Moderación: opacidad/slide.
+Rutas: al trazar, animar la opacidad del polyline y un pin “saltando”. (Puntos extras).
+
